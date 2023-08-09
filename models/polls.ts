@@ -5,10 +5,6 @@ interface PollsAttributes {
   id: string;
   title: string;
   description: string;
-  options: {
-    id: string;
-    value: string;
-  }[];
 }
 
 const polls = (sequelize: Sequelize, DataTypes: dt) => {
@@ -16,11 +12,9 @@ const polls = (sequelize: Sequelize, DataTypes: dt) => {
     static associate = (model: any) => {
       Polls.belongsTo(model.Projects);
     };
-
     id!: string;
     title!: string;
     description!: string;
-    options!: { id: string; value: string }[];
   }
 
   Polls.init(
@@ -37,10 +31,6 @@ const polls = (sequelize: Sequelize, DataTypes: dt) => {
       description: {
         allowNull: false,
         type: DataTypes.TEXT,
-      },
-      options: {
-        allowNull: false,
-        type: DataTypes.JSON,
       },
     },
     {

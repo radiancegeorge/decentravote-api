@@ -8,6 +8,7 @@ const { generateUsername } = require("username-generator");
 
 export const RequestAuth = expressAsyncHandler(async (req, res) => {
   const { walletAddress } = await checkError(req);
+
   const user = await db.Users.findOne({
     where: {
       walletAddress,

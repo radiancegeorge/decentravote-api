@@ -1,6 +1,6 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 
-interface UsersAttributes {
+export interface UsersAttributes {
   id?: string;
   username: string;
   walletAddress: string;
@@ -10,7 +10,10 @@ type dataType = typeof DataTypes;
 
 const users = (sequelize: Sequelize, DataTypes: dataType) => {
   class Users extends Model<UsersAttributes> implements UsersAttributes {
-    static associate = (models: any) => {};
+    static associate = (models: any) => {
+      Users.hasOne(models.Projects);
+    };
+
     id?: string;
     username!: string;
     walletAddress!: string;
