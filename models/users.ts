@@ -12,6 +12,13 @@ const users = (sequelize: Sequelize, DataTypes: dataType) => {
   class Users extends Model<UsersAttributes> implements UsersAttributes {
     static associate = (models: any) => {
       Users.hasOne(models.Projects);
+      Users.belongsToMany(models.Options, {
+        through: models.Votes,
+        foreignKey: {
+          allowNull: false,
+          name: "UserId",
+        },
+      });
     };
 
     id?: string;

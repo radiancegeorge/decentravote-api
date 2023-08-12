@@ -1,4 +1,4 @@
-import { body, param } from "express-validator";
+import { body, param, query } from "express-validator";
 import web3 from "web3";
 import db from "../../../models";
 import { Model, Op } from "sequelize";
@@ -79,4 +79,10 @@ export const DeleteCommunityValidation = [
   param(["projectId", "type"])
     .isString()
     .withMessage("invalid projectId or type"),
+];
+
+export const PollsFeedValidation = [
+  query("limit").default(10).toInt(),
+  query("page").default(1).toInt(),
+  // query("limit").default(10).toInt(),
 ];

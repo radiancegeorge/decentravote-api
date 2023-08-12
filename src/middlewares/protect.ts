@@ -18,3 +18,21 @@ export const userProtect = (
   (req as any).user = jwt.verify(token, process.env.JWT as string) as any;
   next();
 };
+export const partialUserProtect = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { authorization } = req.headers;
+
+  if (authorization) {
+    if (!authorization.includes("Bearer"))
+      throw { message: "missing Bearer", status: 401 };
+    const token = authorization.split("Bearer ")[1];
+    if (!token) throw { message: "token not found", status: 401 };
+
+    // token found
+    (req as any).user = jwt.verify(token, process.env.JWT as string) as any;
+  }
+  next();
+};

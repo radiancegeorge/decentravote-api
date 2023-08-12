@@ -6,7 +6,7 @@ const polls = [
     id: uuidv4(), // Generate a random uuid for the poll id
     title: "What is your favorite color?", // A simple question for the poll title
     description: "Choose one of the options below.", // A short instruction for the poll description
-    ProjectId: "6527407a-1903-435a-8d3e-7bedcbf95745", // Use the given project id
+    ProjectId: "5d7604d1-e93c-40b8-8ba4-c691f2c24f30", // Use the given project id
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -15,7 +15,7 @@ const polls = [
     title: "How often do you use TypeScript?", // Another question for the poll title
     description:
       "Select the option that best describes your frequency of using TypeScript.", // Another instruction for the poll description
-    ProjectId: "6527407a-1903-435a-8d3e-7bedcbf95745", // Use the same project id
+    ProjectId: "5d7604d1-e93c-40b8-8ba4-c691f2c24f30", // Use the same project id
     createdAt: new Date(),
     updatedAt: new Date(),
   },
